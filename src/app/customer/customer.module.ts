@@ -5,11 +5,12 @@ import { RegistrationComponent } from './registration/registration.component';
 import { RouterModule } from '@angular/router';
 import { customerRoutes } from './customer.routes';
 import { FormsModule } from '@angular/forms';
+import { CustomerService } from './customer.service';
 
 @NgModule({
   declarations: [LoginComponent, RegistrationComponent],
   imports: [BrowserModule,FormsModule, RouterModule.forChild(customerRoutes)],
   exports: [],
-  providers: [],
+  providers: [CustomerService],
 })
 export class CustomerModule {}

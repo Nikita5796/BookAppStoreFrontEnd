@@ -19,6 +19,7 @@ export class RegistrationComponent implements OnInit{
   }
 
   public doRegister(){
+    //alert("hi");
     let response = this.service1.doRegistration(this.customer);
 
     console.log(this.customer);
@@ -26,6 +27,7 @@ export class RegistrationComponent implements OnInit{
     response.subscribe((data) =>
     console.log(data)
     );
+    alert("user register successfully");
   }
 
   customTrackBy(index: number, obj: any): any {

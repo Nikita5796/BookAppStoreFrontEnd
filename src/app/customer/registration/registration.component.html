@@ -4,22 +4,22 @@
   <form #UserRegistrationForm = "ngForm">
     <div class="form-group">
       <label class="form-label">Name: </label>
-      <input type="text" class="form-control, validate" name="username" #Username="ngModel" [(ngModel)]="customer.name" />
+      <input type="text" class="form-control" name="username" [(ngModel)]="customer.name" />
     </div>
 
     <div class="form-group">
       <label class="form-label">Email ID: </label>
-      <input type="email" class="form-control, validate" name="emailid" #Username="ngModel" [(ngModel)]="customer.emailId"/>
+      <input type="email" class="form-control" name="emailid" [(ngModel)]="customer.emailId" />
     </div>
 
     <div class="form-group">
       <label class="form-label">Password: </label>
-      <input type="password" class="form-control, validate" name="password" #Username="ngModel" [(ngModel)]="customer.password"/>
+      <input type="password" class="form-control" name="password" [(ngModel)]="customer.password" />
     </div>
 
     <div class="form-group">
       <label class="form-label">Contact: </label>
-      <input type="number" class="form-control, validate" name="contact" #Username="ngModel" [(ngModel)]="customer.contact"/>
+      <input type="number" class="form-control" name="contact" [(ngModel)]="customer.contact" />
     </div>
 
     <div class="form-group">
@@ -34,26 +34,24 @@
 
     <div class="form-group">
       <label class="form-label">Address : </label>
-      <input type="text" class="form-control, validate" name="address" #Username="ngModel" [(ngModel)]="customer.address" />
+      <input type="text" class="form-control" name="address" [(ngModel)]="customer.address"  />
     </div>
 
     <div class="form-group">
-      <label class="form-label">State: </label>
-      <select class="form-control">
-        <option value="">--select--</option>
-        <option *ngFor="let state of states; let i = index;
-        trackBy: customTrackBy " value="{{ state.index }}" [(ngModel)]="states[i]">{{
+      <label class="form-label" >State: </label>
+      <select class="form-control" name="stateid" [(ngModel)]="customer.stateid">
+        <option value="" >--select--</option>
+        <option *ngFor="let state of states" value="{{ state.index }}" >{{
           state
         }}</option>
       </select>
     </div>
 
     <div class="form-group">
-      <label class="form-label">City: </label>
-      <select class="form-control">
+      <label class="form-label" >City: </label>
+      <select class="form-control" name="city" [(ngModel)]="customer.cityid">
         <option value="">--select--</option>
-        <option *ngFor="let city of cities; let i = index;
-        trackBy: customTrackBy " value="{{ city.index }}" [(ngModel)]="cities[i]">{{
+        <option *ngFor="let city of cities" value="{{ city.index }}" >{{
           city
         }}</option>
       </select>
@@ -61,9 +59,9 @@
 
     <div class="form-group">
       <label class="form-label">Postal Code: </label>
-      <input type="number" class="form-control" name="postalcode" #Username="ngModel" [(ngModel)]="customer.postalcode" />
+      <input type="number" class="form-control" name="postalcode" [(ngModel)]="customer.postalcode" />
     </div>
 
-    <button type="submit" class="btn btn-block btn-primary" (click)="doRegister"> Register</button>
+    <button type="submit" class="btn btn-block btn-primary" (click)="doRegister()"> Register</button>
   </form>
 </div>
