@@ -20,8 +20,9 @@ export class BookService {
 
   getAllBooks(category : number) {
     console.log(category +" hello");
-    let result =  this.http.get("https://localhost:44356/api/books/category/"+category);
-    console.log(result);
-    return result;
+    let response =  this.http.get("https://localhost:44356/api/books/category/"+category);
+    console.log(response);
+    return response;
   }
+ 
 }

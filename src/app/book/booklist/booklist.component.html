@@ -1,0 +1,29 @@
+<table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Book Image</th>
+              <th>Book Title</th>
+              <th>Book Price</th>
+              <th>Book Rating</th>
+              <!-- <th></th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let book of books" >
+              <td>
+                <a routerLink="">
+                  <img src="{{ book.imageUrl }}" style="width: 70px; height: 90px;" />
+                </a>
+              </td>
+              <td>{{ book.title }}</td>
+              <td>{{ book.price | currency: "USD" }}</td>
+              <td> {{ book.ratings }}</td>
+              <!-- <td>
+                <button class="btn btn-block btn-primary">
+                  Add To Cart
+                </button>
+              </td> -->
+            </tr>
+          </tbody>
+
+        </table>
