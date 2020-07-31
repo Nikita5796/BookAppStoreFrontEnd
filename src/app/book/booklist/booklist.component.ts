@@ -22,15 +22,6 @@ export class BooklistComponent implements OnInit {
     this.bookService.getAllBooks(categoryid).subscribe((data:Book[]) => {
       this.books = data;
     });
-    // console.log(response);
-    // response.subscribe(data : Book[] =>{
-    //   console.log(data),
-    //   data.forEach(value =>{
-    //     this.books.push(value)
-    //   });
-    //   //this.books=data
-    // }   
-    // );
   }
 
 }
