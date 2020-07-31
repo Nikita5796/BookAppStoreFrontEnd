@@ -9,6 +9,23 @@ export class CustomerService {
 
   doRegistration(customerRegistration){
       console.log(customerRegistration);
-      return this.http.post("https://localhost:44378/api/users/add",customerRegistration, {responseType : 'text' as 'json'});
+      return this.http.post("https://localhost:44378/api/users/add"+customerRegistration, {responseType : 'text' as 'json'});
   }
+
+  doLogin(customerlogin){
+    console.log(customerlogin);
+    return this.http.post("https://localhost:44356/api/users/login",customerlogin, {responseType : 'text' as 'json'});
+  }
+
+  // isUserLoggedIn(){
+  //   let user = sessionStorage.getItem('validData')
+  //   console.log(!user === null)
+  //   return !(user === null)
+  // }
+
+  // logOut(){
+
+  //   sessionStorage.removeItem('validData')
+  // }
+
 }

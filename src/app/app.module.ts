@@ -8,6 +8,7 @@ import { CustomerModule } from './customer/customer.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, PageNotFoundComponent],
@@ -17,6 +18,7 @@ import { appRoutes } from './app.routes';
     CustomerModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

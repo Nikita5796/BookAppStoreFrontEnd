@@ -5,15 +5,23 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class BookService {
+  book:Book = new Book();
   constructor(private http: HttpClient) {}
 
-  baseUrl = 'http://localhost:8000/';
 
-  getAllBooksByCategory(category: string): Observable<Book[]> {
-    return this.http.get<Book[]>(this.baseUrl + 'books/' + category);
+  // getBookById(bookId: number): Observable<Book> {
+  //   return this.http.get<Book>("https://localhost:44356/api/books/" + bookId);
+  // }
+
+  getBooks(book : Book){
+    console.log(book);
+      return this.http.post(""+book, {responseType : 'text' as 'json'});
   }
 
-  getBookById(bookId: number): Observable<Book> {
-    return this.http.get<Book>(this.baseUrl + 'book/' + bookId);
+  getAllBooks(category : number) {
+    console.log(category +" hello");
+    let result =  this.http.get("https://localhost:44356/api/books/category/"+category);
+    console.log(result);
+    return result;
   }
 }
