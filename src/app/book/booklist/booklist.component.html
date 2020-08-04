@@ -1,23 +1,25 @@
-<table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Book Image</th>
-              <th>Book Title</th>
-              <th>Book Price</th>
-              <th>Book Rating</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor = "let book of books" >
-              <td>
-                <a routerLink="">
-                  <img src="{{ book.imageUrl }}" style="width: 70px; height: 90px;" />
-                </a>
-              </td>
-              <td>{{ book.title }}</td>
-              <td>{{ book.price | currency: "INR" }}</td>
-              <td> {{ book.ratings }}</td>
-            </tr>
-          </tbody>
-
-        </table>
+<div>
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Book Image</th>
+      <th>Book Title</th>
+      <th>Book Price</th>
+      <th>Book Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let book of books" >
+      <!-- <td>
+        <a routerLink="">
+          <img src="{{ book.imageUrl }}" style="width: 70px; height: 90px;" />
+        </a>
+      </td> -->
+      <td><a routerLink = "/book/{{ book.bookId }}"><img src = "{{ book.imageUrl }}" style="width: 70px; height: 90px"/></a></td>
+      <td>{{ book.title }}</td>
+      <td>{{ book.price | currency: "INR" }}</td>
+      <td> {{ book.ratings }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
