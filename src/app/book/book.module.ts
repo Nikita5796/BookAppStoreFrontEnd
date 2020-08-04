@@ -5,12 +5,13 @@ import { RouterModule } from '@angular/router';
 import { bookRoutes } from './book.routes';
 import { BookService } from './book.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BooklistComponent } from './booklist/booklist.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ BooklistComponent],
   imports: [BrowserModule, RouterModule.forChild(bookRoutes), HttpClientModule],
-  exports: [],
+  exports: [BooklistComponent],
   providers: [BookService],
 })
 export class BookModule {}
