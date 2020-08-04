@@ -8,14 +8,16 @@ export class BookService {
   book:Book = new Book();
   constructor(private http: HttpClient) {}
 
-  getBooks(book : Book){
-    console.log(book);
-      return this.http.post(""+book, {responseType : 'text' as 'json'});
-  }
-
   getAllBooks(category : number) {
     let response =  this.http.get("https://localhost:44356/api/books/category/"+category);
     return response;
   }
+
+  getBookById(bookId : number){
+    let result = this.http.get('https://localhost:44356/api/books/'+bookId);
+    return result;
+  }
+
+  
  
 }

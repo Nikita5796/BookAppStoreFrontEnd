@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="card">
+      <div class="card-header">
+        <span>Book Details</span>
+      </div>
+  
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="text-center">
+              <img
+                src="{{ book.imageUrl }}"
+                style="width: 40%; height: 70%;"
+                class="img-responsive"
+              />
+              <br /><br />
+              <button class="btn" style="background-color: #ff9f00;">
+                Add To Cart
+              </button>
+              &nbsp;&nbsp;
+              <button class="btn" style="background-color: #fb641b;">
+                Buy Now
+              </button>
+            </div>
+          </div>
+  
+          <div class="col-md-6">
+            <table class="table table-bordered">
+              <tr>
+                <td>Book Title</td>
+                <td>{{ book.title }}</td>
+              </tr>
+              <tr>
+                <td>Book Publisher</td>
+                <td>{{ book.publisher }}</td>
+              </tr>
+              <tr>
+                <td>Book Authors</td>
+                <td>{{ book.author }}</td>
+              </tr>
+              <tr>
+                <td>Pages</td>
+                <td>{{ book.noOfPages }}</td>
+              </tr>
+              <tr>
+                <td>Ratings</td>
+                <td>{{ book.ratings }}</td>
+              </tr>
+              <tr>
+                <td>Price</td>
+                <td>{{ book.price }}</td>
+              </tr>
+              <tr>
+                <td>Release Date</td>
+                <td>{{ book.releaseDate }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
