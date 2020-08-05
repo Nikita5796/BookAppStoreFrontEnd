@@ -9,7 +9,12 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  constructor(){}
+  constructor(private router: Router) { }
 
-  ngOnUnit(){}
+  ngOnUnit() { }
+
+  Logout() {
+    localStorage.removeItem('userToken');
+    this.router.navigate(['login']);
+  }
 }
