@@ -22,7 +22,6 @@ export class LoginComponent {
     let response = this.service1.doLogin(this.customer);
     console.log(this.customer);
     response.subscribe((data: any) => {
-      console.log(data.token);
       localStorage.setItem('userToken', data.token);
       localStorage.setItem('username', data.username);
       this.router.navigate(['home']);
