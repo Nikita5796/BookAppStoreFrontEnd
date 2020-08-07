@@ -11,9 +11,9 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class HomeComponent {
   constructor(private router: Router) { }
 
-  ngOnUnit() { }
+  ngOnInit() { }
 
-  Logout() {
+  logOut() {
     localStorage.removeItem('userToken');
     this.router.navigate(['login']);
   }

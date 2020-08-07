@@ -12,15 +12,14 @@ export class LoginComponent {
   customer: customer = new customer();
   isLoginError: boolean = false;
 
-  constructor(private service1: CustomerService, private router: Router) { }
+  constructor(private customerservice: CustomerService, private router: Router) { }
 
-  ngOnUnit() {
+  ngOnInit() {
 
   }
 
   doLogin() {
-    let response = this.service1.doLogin(this.customer);
-    console.log(this.customer);
+    let response = this.customerservice.doLogin(this.customer);
     response.subscribe((data: any) => {
       localStorage.setItem('userToken', data.token);
       localStorage.setItem('username', data.username);
