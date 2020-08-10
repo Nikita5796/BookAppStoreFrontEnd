@@ -2,33 +2,31 @@ import { Component } from '@angular/core';
 import { customer } from '../customer';
 import { CustomerService } from '../customer.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   templateUrl: './login.component.html',
 })
 export class LoginComponent {
 
-  customer : customer = new customer();
+  customer: customer = new customer();
+  isLoginError: boolean = false;
 
-  constructor(private service1 : CustomerService, private router : Router){}
+  constructor(private customerservice: CustomerService, private router: Router) { }
 
-  ngOnUnit(){
-    
-  }
-
-  public doLogin(){
-    //alert("hi");
-    let response = this.service1.doLogin(this.customer);
-
-    console.log(this.customer);
-
-    response.subscribe((data) =>
-    console.log(data)
-      
-    );
-    alert("successfully Logged in");
-    this.router.navigateByUrl('booklist');
+  ngOnInit() {
 
   }
 
+  doLogin() {
+    let response = this.customerservice.doLogin(this.customer);
+    response.subscribe((data: any) => {
+      localStorage.setItem('userToken', data.token);
+      localStorage.setItem('username', data.username);
+      this.router.navigate(['home']);
+    },
+      (err: HttpErrorResponse) => {
+        this.isLoginError = true;
+      });
+  }
 }

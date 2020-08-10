@@ -5,4 +5,6 @@ import { RegistrationComponent } from './registration/registration.component';
 export const customerRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
+
+  { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
