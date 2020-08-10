@@ -9,5 +9,5 @@ export const appRoutes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: '', component: HomeComponent },
   { path: '**', component: PageNotFoundComponent },
-  { path: 'booklist', component: BooklistComponent },
+  { path: 'booklist', component: BooklistComponent }
 ];
