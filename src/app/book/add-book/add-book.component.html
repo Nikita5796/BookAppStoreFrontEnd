@@ -1,12 +1,6 @@
 <div class="container" style="width: 40%;">
-    <div class="card">
         <form #AddBookForm='ngForm' (submit)="addBook()">
             <h3 class="text-center">Add New Book</h3>
-            <div class="form-group">
-                <label class="form-label">Book Id: </label>
-                <input type="text" class="form-control" autofocus #Title ngModel name="booktitle"
-                    [(ngModel)]="Book.bookId" />
-            </div>
             <div class="form-group">
                 <label class="form-label">Book Title: </label>
                 <input type="text" class="form-control" autofocus #Title ngModel name="booktitle"
@@ -36,23 +30,22 @@
                 <label class="form-label">Book Category: </label>
                 <select class="form-control" name="categoryId" [(ngModel)]="Book.categoryId">
                     <option value="">--select--</option>
-                    <option *ngFor="let category of categoryIds" value="{{ category }}">{{
-                      category
+                    <option *ngFor="let category of BookCategories" value="{{ category.id }}">{{
+                      category.name
                     }}</option>
                 </select>
             </div>
             <div class="form-group">
                 <label class="form-label">Price: </label>
-                <input type="text" class="form-control" autofocus #Title ngModel name="booktitle"
+                <input type="text" class="form-control" autofocus #Title ngModel name="bookprice"
                     [(ngModel)]="Book.price" />
             </div>
             <div class="form-group">
                 <label class="form-label">Release Date: </label>
-                <input type="text" class="form-control" autofocus #Title ngModel name="booktitle"
-                    [(ngModel)]="Book.releaseDate" />
+                <input class="form-control" placeholder="yyyy-mm-dd" name="dp1" [(ngModel)]="jsondate" ngbDatepicker #d1="ngbDatepicker" (click)="d1.toggle()" required>
+
             </div>
             <button type="submit" [disabled]="!this.AddBookForm.valid" class="btn btn-primary btn-block">Add
                 Book</button>
         </form>
-    </div>
 </div>

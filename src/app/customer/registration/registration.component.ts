@@ -7,30 +7,30 @@ import { Router } from '@angular/router';
   templateUrl: './registration.component.html',
 })
 export class RegistrationComponent implements OnInit{
-  states = ['Maharashtra', 'Madhya Pradesh', 'Karnataka', 'Uttar Pradesh'];
-  cities = ['Mumbai', 'Bhopal', 'Banglore', 'Gurgaon'];
+  states = {};
+  cities = {};
+  Gender = ["Male","Female"];
 
   customer : customer = new customer();
 
-  constructor(private service1 : CustomerService, private router : Router) {}
+  constructor(private customerservice : CustomerService, private router : Router) {}
 
-  ngOnInit() {
+  ngOnInit() : void{
+    this.customerservice.getCities().subscribe(data=>{
+      this.cities = data;
+    });
 
+    this.customerservice.getStates().subscribe(data=>{
+      this.states = data;
+    })
   }
 
   public doRegister(){
-    //alert("hi");
-    let response = this.service1.doRegistration(this.customer);
-
-    console.log(this.customer);
-
-    response.subscribe((data) =>
-    console.log(data)
-    );
-    alert("user register successfully");
+    let response = this.customerservice.doRegistration(this.customer);
+    response.subscribe((data) =>{
+      alert("New user added Successfully.");
+      this.router.navigate(['login']);
+    });
   }
 
-  customTrackBy(index: number, obj: any): any {
-    return index;
-}
 }

@@ -4,7 +4,7 @@
   <form #UserRegistrationForm = "ngForm">
     <div class="form-group">
       <label class="form-label">Name: </label>
-      <input type="text" class="form-control" name="username" [(ngModel)]="customer.name" />
+      <input type="text" class="form-control" name="username" [(ngModel)]="customer.userName" />
     </div>
 
     <div class="form-group">
@@ -22,14 +22,14 @@
       <input type="number" class="form-control" name="contact" [(ngModel)]="customer.contact" />
     </div>
 
-    <div class="form-group">
-      <label class="form-label">Gender: &nbsp;&nbsp;</label>
-      <div class="form-check form-check-inline">
-        <input type="radio" class="validate" value="male" name="gender" [(ngModel)]="customer.gender" required #genderControl="ngModel"> Male
-      </div>
-      <div class="form-check form-check-inline">
-        <input type="radio" class="validate" value="male" name="gender" [(ngModel)]="customer.gender" required #genderControl="ngModel">Female
-      </div>
+    <div class="form-group" >
+      <label class="form-label" >Gender: </label>
+      <select class="form-control" name="gender" [(ngModel)]="customer.gender">
+        <option value="" >--select--</option>
+        <option *ngFor="let gender of Gender" value="{{ gender }}" >{{
+          gender
+        }}</option>
+      </select>
     </div>
 
     <div class="form-group">
@@ -41,8 +41,8 @@
       <label class="form-label" >State: </label>
       <select class="form-control" name="stateid" [(ngModel)]="customer.stateid">
         <option value="" >--select--</option>
-        <option *ngFor="let state of states" value="{{ state.index }}" >{{
-          state
+        <option *ngFor="let state of states" value="{{ state.stateId }}" >{{
+          state.stateName
         }}</option>
       </select>
     </div>
@@ -51,8 +51,8 @@
       <label class="form-label" >City: </label>
       <select class="form-control" name="city" [(ngModel)]="customer.cityid">
         <option value="">--select--</option>
-        <option *ngFor="let city of cities" value="{{ city.index }}" >{{
-          city
+        <option *ngFor="let city of cities" value="{{ city.cityId }}" >{{
+          city.cityName
         }}</option>
       </select>
     </div>

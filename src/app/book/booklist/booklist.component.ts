@@ -10,7 +10,7 @@ import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class BooklistComponent implements OnInit {
 
-  constructor(private bookService: BookService,private config: NgbRatingConfig, private router : Router) { 
+  constructor(private bookService: BookService, private config: NgbRatingConfig, private router : Router) { 
     config.readonly = true;
     config.max=5;
   }

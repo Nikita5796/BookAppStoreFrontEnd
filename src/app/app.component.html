@@ -1,7 +1,7 @@
 <div class="container">
   <img src="assets/images/logo.jpg" class="img-responsive" style="width: 120px; height: 60px;" />
-  <img src="assets/images/cart.jpg" class="img-responsive float-right" style="width: 70px; height: 60px;" />
 </div>
+
 <div class="container">
   <nav class="navbar navbar-expand-sm bg-dark">
     <ul class="navbar-nav">
@@ -11,11 +11,23 @@
       <li class="nav-item">
         <a routerLink="registration" class="nav-link">Sign Up</a>
       </li>
-      <li class="nav-item"><a routerLink="login" class="nav-link">Login</a></li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/addbook">Add Book</a>
+      </li>
+      <li #loginBtn class="nav-item" >
+        <a routerLink="login" class="nav-link" >Login</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto ">
+      <li #userProfile class="nav-item d-none " >
+        welcome {{ this.userInformation.userName }}
+      </li>
+      <li #logOutBtn class="nav-item d-none" >
+        <button class="btn btn-primary btn-block right" (click)="logOut()">Logout</button>
+      </li>
     </ul>
   </nav>
 </div>
-<br />
 
 <router-outlet></router-outlet>
 
@@ -23,11 +35,9 @@
 <div class="container">
   <footer class="bg-dark" style="color: white;">
     <div class="text-center">
-      <span>Website Created By: Nikita Thorat</span>
-      <br />
       <span>
         Copyright &copy; 2020
-        <a href="#">www.bookapp.com</a>
+        <a routerLink="home">www.bookapp.com</a>
       </span>
     </div>
   </footer>

@@ -21,8 +21,9 @@ export class LoginComponent {
   doLogin() {
     let response = this.customerservice.doLogin(this.customer);
     response.subscribe((data: any) => {
+      localStorage.setItem('userID',data.userId);
       localStorage.setItem('userToken', data.token);
-      localStorage.setItem('username', data.username);
+      localStorage.setItem('username', data.userName);
       this.router.navigate(['home']);
     },
       (err: HttpErrorResponse) => {
