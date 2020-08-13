@@ -19,7 +19,12 @@ export class BookService {
   }
 
   addBook(book: Book) {
-    let result = this.http.post("https://localhost:44356/api/books", book, { responseType: 'text' as 'json' });
+    let result = this.http.post("https://localhost:44356/api/books", book);
+    return result;
+  }
+
+  getCategories(){
+    let result = this.http.get("https://localhost:44356/api/books/categories");
     return result;
   }
 
