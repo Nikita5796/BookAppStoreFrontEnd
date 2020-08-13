@@ -7,7 +7,7 @@ export class CustomerService {
   constructor(private http: HttpClient) { }
 
   doRegistration(customerRegistration) {
-    return this.http.post("https://localhost:44356/api/users/Register",customerRegistration);
+    return this.http.post("https://localhost:44356/api/users/register",customerRegistration);
   }
 
   doLogin(customerlogin) {
