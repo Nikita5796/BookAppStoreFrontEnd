@@ -1,20 +1,30 @@
-<div>
-  <table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Book Image</th>
-      <th>Book Title</th>
-      <th>Book Price</th>
-      <th>Book Rating</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor = "let book of books" >
-      <td><a routerLink = "/book/{{ book.bookId }}"><img src = "{{ book.imageUrl }}" style="width: 70px; height: 90px"/></a></td>
-      <td>{{ book.title }}</td>
-      <td>{{ book.price | currency: "INR" }}</td>
-      <td><ngb-rating [rate] = "book.ratings"></ngb-rating></td>
-    </tr>
-  </tbody>
-</table>
+<div class = "container">
+  <div class = "row">
+    <select class="form-control" name="categoryId" [(ngModel)]="categoryId" (change)="categoryBookList(categoryId)" >
+      <option value="0">--All Books--</option>
+      <option *ngFor="let category of BookCategories" value="{{ category.id }}">{{
+        category.name
+      }}</option>
+    </select>
+  </div>
+  <div class = "row">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Book Image</th>
+          <th>Book Title</th>
+          <th>Book Price</th>
+          <th>Book Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let book of books" >
+          <td><a routerLink = "/book/{{ book.bookId }}"><img src = "{{ book.imageUrl }}" style="width: 70px; height: 90px"/></a></td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.price | currency: "INR" }}</td>
+          <td><ngb-rating [rate] = "book.ratings"></ngb-rating></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
