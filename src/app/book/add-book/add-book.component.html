@@ -30,8 +30,8 @@
                 <label class="form-label">Book Category: </label>
                 <select class="form-control" name="categoryId" [(ngModel)]="Book.categoryId">
                     <option value="">--select--</option>
-                    <option *ngFor="let category of BookCategories" value="{{ category.categoryId }}">{{
-                      category.category
+                    <option *ngFor="let category of BookCategories" value="{{ category.id }}">{{
+                      category.name
                     }}</option>
                 </select>
             </div>
