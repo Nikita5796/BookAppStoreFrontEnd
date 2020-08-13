@@ -8,10 +8,13 @@ import { BooklistComponent } from './booklist/booklist.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { AddBookComponent } from './add-book/add-book.component';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @NgModule({
   declarations: [ BooklistComponent, BookdetailsComponent, AddBookComponent],
-  imports: [BrowserModule, RouterModule.forChild(bookRoutes), FormsModule, HttpClientModule],
+  imports: [BrowserModule, RouterModule.forChild(bookRoutes),NgbModule, FormsModule, HttpClientModule],
   exports: [BooklistComponent],
   providers: [BookService],
 })
