@@ -44,15 +44,15 @@
               </tr>
               <tr>
                 <td>Ratings</td>
-                <td>{{ book.ratings }}</td>
+                <td><ngb-rating [rate] = "book.ratings"></ngb-rating></td>
               </tr>
               <tr>
                 <td>Price</td>
-                <td>{{ book.price }}</td>
+                <td>{{ book.price | currency: "INR" }}</td>
               </tr>
               <tr>
                 <td>Release Date</td>
-                <td>{{ book.releaseDate }}</td>
+                <td>{{ book.releaseDate | date : "fullDate" }}</td>
               </tr>
             </table>
           </div>
