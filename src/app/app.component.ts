@@ -36,14 +36,14 @@ export class AppComponent implements OnInit,AfterViewChecked{
     if(this.userId != 0)
     {
       this.userInformation.userId = +localStorage.getItem('userID');
-      this.userInformation.userName = localStorage.getItem('userName');
+      this.userInformation.userName = localStorage.getItem('username');
       this.userInformation.token = localStorage.getItem('userToken');
       this.printlog();
     }   
   }
 
   logOut() {
-    localStorage.removeItem('userName');
+    localStorage.removeItem('username');
     localStorage.removeItem('userID');
     localStorage.removeItem('userToken');
     this.userProfile.nativeElement.classList.add('d-none');

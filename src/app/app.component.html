@@ -20,7 +20,7 @@
     </ul>
     <ul class="navbar-nav ml-auto ">
       <li #userProfile class="nav-item d-none " >
-        Welcome {{ this.userInformation.userName }}
+        welcome {{ this.userInformation.userName }}
       </li>
       <li #logOutBtn class="nav-item d-none" >
         <button class="btn btn-primary btn-block right" (click)="logOut()">Logout</button>
@@ -37,6 +37,7 @@
     <div class="text-center">
       <span>
         Copyright &copy; 2020
+        <a routerLink="home">www.bookapp.com</a>
       </span>
     </div>
   </footer>

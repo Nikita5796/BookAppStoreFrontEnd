@@ -23,7 +23,7 @@ export class LoginComponent {
     response.subscribe((data: any) => {
       localStorage.setItem('userID',data.userId);
       localStorage.setItem('userToken', data.token);
-      localStorage.setItem('userName', data.userName);
+      localStorage.setItem('username', data.userName);
       this.router.navigate(['home']);
     },
       (err: HttpErrorResponse) => {
