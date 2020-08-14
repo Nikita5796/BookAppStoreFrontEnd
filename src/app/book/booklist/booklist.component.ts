@@ -15,15 +15,15 @@ export class BooklistComponent implements OnInit {
   bookCategories = {};
   categoryId;
   books : MatTableDataSource<Book>;
+  Columns : string[] = ['bookImage','bookTitle','bookPrice','bookRating'];
   @ViewChild(MatPaginator) paginator : MatPaginator;
+
 
   constructor(private bookService: BookService, private config: NgbRatingConfig, private router : Router) { 
     config.readonly = true;
     config.max=5;
     this.books = new MatTableDataSource<Book>();
   }
-
-  
 
   ngOnInit() {
     let categoryid = 0;
