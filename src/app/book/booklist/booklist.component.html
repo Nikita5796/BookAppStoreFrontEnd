@@ -2,7 +2,7 @@
   <div class = "row">
     <select class="form-control" name="categoryId" [(ngModel)]="categoryId" (change)="categoryBookList(categoryId)" >
       <option value="0">--All Books--</option>
-      <option *ngFor="let category of BookCategories" value="{{ category.id }}">{{
+      <option *ngFor="let category of bookCategories" value="{{ category.id }}">{{
         category.name
       }}</option>
     </select>

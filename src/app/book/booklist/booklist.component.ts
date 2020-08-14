@@ -10,7 +10,7 @@ import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class BooklistComponent implements OnInit {
 
-  BookCategories = {};
+  bookCategories = {};
   categoryId;
 
   constructor(private bookService: BookService, private config: NgbRatingConfig, private router : Router) { 
@@ -27,7 +27,7 @@ export class BooklistComponent implements OnInit {
     });
 
     this.bookService.getCategories().subscribe(data=>{
-      this.BookCategories = data;
+      this.bookCategories = data;
     });
   }
 
