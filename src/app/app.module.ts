@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthGuard } from './auth/auth.guard';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, PageNotFoundComponent],
@@ -20,6 +22,8 @@ import { AuthGuard } from './auth/auth.guard';
     FormsModule,
     RouterModule.forRoot(appRoutes),
     NgbModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent],

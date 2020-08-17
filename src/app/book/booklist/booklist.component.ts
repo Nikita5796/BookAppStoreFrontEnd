@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BookService } from '../book.service';
 import { Router } from '@angular/router';
 import { Book } from '../book';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { MatTableDataSource } from '@angular/material/table'
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-booklist',
@@ -12,18 +14,22 @@ export class BooklistComponent implements OnInit {
 
   bookCategories = {};
   categoryId;
+  books : MatTableDataSource<Book>;
+  Columns : string[] = ['bookImage','bookTitle','bookPrice','bookRating'];
+  @ViewChild(MatPaginator) paginator : MatPaginator;
+
 
   constructor(private bookService: BookService, private config: NgbRatingConfig, private router : Router) { 
     config.readonly = true;
     config.max=5;
+    this.books = new MatTableDataSource<Book>();
   }
-
-  books : Book[] = [];
 
   ngOnInit() {
     let categoryid = 0;
     this.bookService.getAllBooks(categoryid).subscribe((data:Book[]) => {
-      this.books = data;
+      this.books.data = data;
+      this.books.paginator = this.paginator;
     });
 
     this.bookService.getCategories().subscribe(data=>{
@@ -33,7 +39,8 @@ export class BooklistComponent implements OnInit {
 
   categoryBookList(item : number){
     this.bookService.getAllBooks(item).subscribe((data : Book[])=>{
-      this.books = data;
+      this.books.data = data;
+      this.books.paginator = this.paginator;
     })
   }
 
